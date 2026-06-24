@@ -276,12 +276,12 @@ export default function App() {
   // Generate confetti on final winner screen
   useEffect(() => {
     if (showFinalResults) {
-      const colors = ['#00e5ff', '#ffd700', '#ffffff', '#22c55e', '#3b82f6'];
-      const particles = Array.from({ length: 80 }).map((_, i) => ({
+      const colors = ['#74ACDF', '#FFFFFF', '#ffd700', '#38bdf8', '#fbbf24']; // Celeste, Blanco, Dorado y variantes brillantes
+      const particles = Array.from({ length: 120 }).map((_, i) => ({
         id: i,
         left: Math.random() * 100,
         color: colors[Math.floor(Math.random() * colors.length)],
-        size: Math.random() * 12 + 6,
+        size: Math.random() * 10 + 5,
         delay: Math.random() * 3
       }));
       setConfetti(particles);
@@ -494,7 +494,7 @@ export default function App() {
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6 md:py-8 flex flex-col gap-6 md:gap-8 justify-center">
         
         {/* --- CABECERA INTEGRADA DEL SITIO (HERO BANNER) --- */}
-        <section className="relative w-full bg-gradient-to-r from-[#060c2b] to-[#04071c] border border-cyan-500/30 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden box-glow-cyan">
+        <section className="relative w-full bg-gradient-to-br from-[#060e2b] via-[#04081c]/95 to-[#02040d] border border-cyan-500/40 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden box-glow-cyan">
           
           {/* Cyber lights in background */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none"></div>
@@ -502,47 +502,45 @@ export default function App() {
           
           {/* LADO IZQUIERDO: TÍTULO MASIVO */}
           <div className="flex-1 text-center md:text-left z-10 flex flex-col justify-center">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-              <span className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse box-glow-cyan-strong"></span>
-              <span className="text-xs md:text-sm font-mono text-cyan-400 uppercase tracking-widest font-bold">EDICIÓN JEOPARDY EN VIVO</span>
+            <div className="flex items-center justify-center md:justify-start gap-1.5 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              <span className="text-amber-400 text-lg md:text-xl drop-shadow-[0_0_6px_rgba(245,158,11,0.8)]">★</span>
+              <span className="text-amber-400 text-xl md:text-2xl drop-shadow-[0_0_10px_rgba(245,158,11,0.9)] -translate-y-0.5">★</span>
+              <span className="text-amber-400 text-lg md:text-xl drop-shadow-[0_0_6px_rgba(245,158,11,0.8)]">★</span>
+              <span className="text-xs md:text-sm font-mono text-cyan-300 uppercase tracking-widest font-bold ml-2">EDICIÓN JEOPARDY EN VIVO</span>
             </div>
             
-            <h1 className="font-anton font-extrabold tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase text-slate-100 leading-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-              TRIVIA
-              <span className="block text-cyan-400 glow-cyan">MUNDIALISTA</span>
+            <h1 className="weathered-title text-center md:text-left text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.8] drop-shadow-[0_8px_16px_rgba(0,0,0,0.95)] select-none">
+              TRIVIA<br/>
+              <span className="text-cyan-400 glow-cyan select-none tracking-tight block mt-2 text-6xl sm:text-7xl md:text-8xl lg:text-[7.8rem]">MUNDIALISTA</span>
             </h1>
             
-            <p className="text-xs md:text-sm font-mono text-slate-400 mt-3 uppercase tracking-widest max-w-md mx-auto md:mx-0">
+            <p className="text-xs md:text-sm font-mono text-slate-400 mt-4 uppercase tracking-widest max-w-md mx-auto md:mx-0">
               Desafío de fútbol de nivel avanzado para fanáticos mundiales. ¡Demostrá tu conocimiento en la grilla de la Copa!
             </p>
           </div>
 
-          {/* LADO DERECHO: IMAGEN DE ECHI CON DIFUMINADO Y SUBTÍTULO */}
-          <div className="relative flex flex-col items-center justify-end z-10 w-full md:w-auto min-w-[280px] md:min-w-[320px] select-none">
+          {/* LADO DERECHO: IMAGEN DE ECHI JUGADOR CON RESPLANDOR Y SUBTÍTULO */}
+          <div className="relative flex flex-col items-center justify-end z-10 w-full md:w-auto min-w-[280px] md:min-w-[320px] select-none h-64 sm:h-72 md:h-80">
             
             {/* Background glowing circle */}
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 w-48 h-48 bg-cyan-400/20 blur-2xl rounded-full pointer-events-none"></div>
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-48 h-48 bg-cyan-400/25 blur-3xl rounded-full pointer-events-none"></div>
             
-            {/* Image Container with fading-to-bottom filters */}
-            <div className="relative w-44 sm:w-48 md:w-56 aspect-[3/4] overflow-hidden rounded-b-lg">
+            {/* Image Container with transparent background */}
+            <div className="relative w-44 sm:w-48 md:w-56 h-full flex items-end justify-center">
               <img 
-                src="POSTER_11_ECHI.jpg" 
-                alt="Echi" 
-                className="w-full h-full object-cover object-top filter contrast-125 saturate-110 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                src="/ECHI_JUGADOR.png" 
+                alt="Los 11 de Echi" 
+                className="max-w-full max-h-full object-contain player-glow pb-4"
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.src = "/POSTER_11_ECHI.jpg";
+                  e.currentTarget.className = "w-full h-full object-cover object-top filter contrast-125 saturate-110 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]";
                 }}
               />
-              
-              {/* Fade layer to blend with deep stadium gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#04071c] via-[#04071c]/50 to-transparent opacity-95"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#04071c] via-[#04071c]/80 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-4 bg-[#04071c]"></div>
             </div>
 
             {/* Subtitle overlapping/covering the bottom crop */}
-            <div className="absolute bottom-[-10px] text-center w-full z-20 pointer-events-none">
-              <span className="font-marker text-cyan-400 italic text-2xl sm:text-3xl md:text-4xl tracking-wide font-bold glow-cyan inline-block rotate-[-3deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+            <div className="absolute bottom-[-5px] text-center w-full z-20 pointer-events-none">
+              <span className="font-marker text-cyan-300 italic text-3xl sm:text-4xl md:text-5xl tracking-wide font-bold glow-cyan inline-block rotate-[-4deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
                 Los 11 de Echi
               </span>
             </div>
@@ -554,13 +552,13 @@ export default function App() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           
           {/* --- GRUPO A BOARD --- */}
-          <div className="border-2 border-cyan-500/50 bg-[#08122d]/90 p-4 w-full text-center relative box-glow-cyan overflow-visible">
-            <div className="flex items-center justify-between border-b border-cyan-900/60 pb-2 mb-3">
+          <div className="border-lightning-cyan bg-[#071029]/95 p-5 w-full text-center relative overflow-visible rounded-lg">
+            <div className="flex items-center justify-between border-b border-cyan-900/60 pb-2.5 mb-4">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse"></span>
-                <span className="font-anton text-lg tracking-widest text-slate-100 uppercase">GRUPO A</span>
+                <span className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse box-glow-cyan-strong"></span>
+                <span className="font-anton text-xl tracking-widest text-slate-100 uppercase">GRUPO A</span>
               </div>
-              <span className="text-[10px] font-mono text-cyan-400 uppercase bg-cyan-950/60 px-2 py-0.5">LOCAL</span>
+              <span className="text-[10px] font-mono text-cyan-400 uppercase bg-cyan-950/80 px-2.5 py-0.5 border border-cyan-800/50 rounded">LOCAL</span>
             </div>
 
             {/* Huge score indicator */}
@@ -571,11 +569,11 @@ export default function App() {
                     type="number" 
                     value={manualScoreA}
                     onChange={(e) => setManualScoreA(e.target.value)}
-                    className="w-24 bg-slate-900 border border-cyan-500 text-cyan-400 p-1 text-center font-mono text-3xl font-bold"
+                    className="w-28 bg-slate-950 border border-cyan-500 text-cyan-400 p-1.5 text-center font-digital text-3xl font-bold rounded"
                   />
                   <button 
                     onClick={() => handleManualScoreSubmit('A')}
-                    className="bg-cyan-500 p-1.5 text-slate-950 cursor-pointer"
+                    className="bg-cyan-500 hover:bg-cyan-400 p-2 text-slate-950 cursor-pointer rounded transition-all"
                   >
                     <Check className="w-4 h-4" />
                   </button>
@@ -586,27 +584,28 @@ export default function App() {
                     setManualScoreA(scoreA.toString());
                     setIsEditingA(true); 
                   }}
-                  className="font-anton text-6xl md:text-7xl tracking-wide text-cyan-400 glow-cyan cursor-pointer hover:scale-105 transition-all"
+                  className="font-digital text-6xl md:text-7xl tracking-widest text-cyan-400 glow-cyan cursor-pointer hover:scale-105 transition-all select-none font-extrabold"
                   title="Editar puntaje"
                 >
                   {scoreA}
                 </h2>
               )}
-              <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">Puntos Acumulados</p>
+              <p className="text-[10px] text-slate-400 mt-2.5 uppercase tracking-widest font-mono">Puntos Acumulados</p>
             </div>
 
             {/* Adjustments row */}
-            <div className="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-cyan-900/40 relative">
+            <div className="flex items-center justify-center gap-4 mt-5 pt-3 border-t border-cyan-900/40 relative">
               <button 
                 onClick={() => { SoundEffects.playSelect(); setShowQuickA(!showQuickA); }}
-                className="flex items-center justify-center w-10 h-10 border border-cyan-500/50 hover:bg-cyan-950/60 text-cyan-400 cursor-pointer transition-all active:scale-95"
+                className="flex items-center justify-center w-11 h-11 rounded border border-cyan-500/50 hover:bg-cyan-950/70 text-cyan-400 cursor-pointer transition-all active:scale-90 hover:box-glow-cyan"
+                title="Sumar Puntos"
               >
                 <Plus className="w-5 h-5" />
               </button>
               
               <button 
                 onClick={() => { SoundEffects.playSelect(); setScoreA(prev => Math.max(0, prev - 100)); SoundEffects.playError(); }}
-                className="flex items-center justify-center w-10 h-10 border border-cyan-500/50 hover:bg-cyan-950/60 text-cyan-400 cursor-pointer transition-all active:scale-95"
+                className="flex items-center justify-center w-11 h-11 rounded border border-cyan-500/50 hover:bg-cyan-950/70 text-cyan-400 cursor-pointer transition-all active:scale-90 hover:box-glow-cyan"
                 title="Restar 100"
               >
                 <Minus className="w-5 h-5" />
@@ -614,28 +613,28 @@ export default function App() {
 
               {/* Score popover adjustment */}
               {showQuickA && (
-                <div className="absolute top-[50px] left-1/2 -translate-x-1/2 bg-[#091535] border border-cyan-500 p-3 z-30 grid grid-cols-2 gap-2 box-glow-cyan-strong w-48">
-                  <div className="col-span-2 flex justify-between text-xs text-slate-400 mb-1">
+                <div className="absolute top-[55px] left-1/2 -translate-x-1/2 bg-[#091535] border-2 border-cyan-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-cyan-strong w-52 rounded-lg">
+                  <div className="col-span-2 flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
                     <span>Ajuste rápido</span>
-                    <button onClick={() => setShowQuickA(false)} className="text-red-400 font-bold">X</button>
+                    <button onClick={() => setShowQuickA(false)} className="text-red-400 font-bold hover:text-red-300">X</button>
                   </div>
-                  <button onClick={() => handleScoreChange('A', 'add', 100)} className="bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 py-1 text-xs font-mono font-bold border border-cyan-800">+100</button>
-                  <button onClick={() => handleScoreChange('A', 'add', 200)} className="bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 py-1 text-xs font-mono font-bold border border-cyan-800">+200</button>
-                  <button onClick={() => handleScoreChange('A', 'add', 300)} className="bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 py-1 text-xs font-mono font-bold border border-cyan-800">+300</button>
-                  <button onClick={() => handleScoreChange('A', 'add', 400)} className="bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 py-1 text-xs font-mono font-bold border border-cyan-800">+400</button>
+                  <button onClick={() => handleScoreChange('A', 'add', 100)} className="bg-cyan-950/90 hover:bg-cyan-900 text-cyan-300 py-1.5 text-xs font-mono font-bold border border-cyan-800 rounded transition-colors">+100</button>
+                  <button onClick={() => handleScoreChange('A', 'add', 200)} className="bg-cyan-950/90 hover:bg-cyan-900 text-cyan-300 py-1.5 text-xs font-mono font-bold border border-cyan-800 rounded transition-colors">+200</button>
+                  <button onClick={() => handleScoreChange('A', 'add', 300)} className="bg-cyan-950/90 hover:bg-cyan-900 text-cyan-300 py-1.5 text-xs font-mono font-bold border border-cyan-800 rounded transition-colors">+300</button>
+                  <button onClick={() => handleScoreChange('A', 'add', 400)} className="bg-cyan-950/90 hover:bg-cyan-900 text-cyan-300 py-1.5 text-xs font-mono font-bold border border-cyan-800 rounded transition-colors">+400</button>
                 </div>
               )}
             </div>
           </div>
 
           {/* --- GRUPO B BOARD --- */}
-          <div className="border-2 border-amber-500/50 bg-[#120e26]/90 p-4 w-full text-center relative box-glow-amber overflow-visible">
-            <div className="flex items-center justify-between border-b border-amber-900/60 pb-2 mb-3">
+          <div className="border-lightning-amber bg-[#140f29]/95 p-5 w-full text-center relative overflow-visible rounded-lg">
+            <div className="flex items-center justify-between border-b border-amber-900/60 pb-2.5 mb-4">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 bg-amber-400 rounded-full animate-pulse"></span>
-                <span className="font-anton text-lg tracking-widest text-slate-100 uppercase">GRUPO B</span>
+                <span className="w-2.5 h-2.5 bg-amber-400 rounded-full animate-pulse box-glow-amber-strong"></span>
+                <span className="font-anton text-xl tracking-widest text-slate-100 uppercase">GRUPO B</span>
               </div>
-              <span className="text-[10px] font-mono text-amber-400 uppercase bg-amber-950/60 px-2 py-0.5">VISITANTE</span>
+              <span className="text-[10px] font-mono text-amber-400 uppercase bg-amber-950/80 px-2.5 py-0.5 border border-amber-800/50 rounded">VISITANTE</span>
             </div>
 
             {/* Huge score indicator */}
@@ -646,11 +645,11 @@ export default function App() {
                     type="number" 
                     value={manualScoreB}
                     onChange={(e) => setManualScoreB(e.target.value)}
-                    className="w-24 bg-slate-900 border border-amber-500 text-amber-400 p-1 text-center font-mono text-3xl font-bold"
+                    className="w-28 bg-slate-950 border border-amber-500 text-amber-400 p-1.5 text-center font-digital text-3xl font-bold rounded"
                   />
                   <button 
                     onClick={() => handleManualScoreSubmit('B')}
-                    className="bg-amber-500 p-1.5 text-slate-950 cursor-pointer"
+                    className="bg-amber-500 hover:bg-amber-400 p-2 text-slate-950 cursor-pointer rounded transition-all"
                   >
                     <Check className="w-4 h-4" />
                   </button>
@@ -661,27 +660,28 @@ export default function App() {
                     setManualScoreB(scoreB.toString());
                     setIsEditingB(true); 
                   }}
-                  className="font-anton text-6xl md:text-7xl tracking-wide text-amber-400 glow-amber cursor-pointer hover:scale-105 transition-all"
+                  className="font-digital text-6xl md:text-7xl tracking-widest text-amber-400 glow-amber cursor-pointer hover:scale-105 transition-all select-none font-extrabold"
                   title="Editar puntaje"
                 >
                   {scoreB}
                 </h2>
               )}
-              <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">Puntos Acumulados</p>
+              <p className="text-[10px] text-slate-400 mt-2.5 uppercase tracking-widest font-mono">Puntos Acumulados</p>
             </div>
 
             {/* Adjustments row */}
-            <div className="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-amber-900/40 relative">
+            <div className="flex items-center justify-center gap-4 mt-5 pt-3 border-t border-amber-900/40 relative">
               <button 
                 onClick={() => { SoundEffects.playSelect(); setShowQuickB(!showQuickB); }}
-                className="flex items-center justify-center w-10 h-10 border border-amber-500/50 hover:bg-amber-950/60 text-amber-400 cursor-pointer transition-all active:scale-95"
+                className="flex items-center justify-center w-11 h-11 rounded border border-amber-500/50 hover:bg-amber-950/70 text-amber-400 cursor-pointer transition-all active:scale-90 hover:box-glow-amber"
+                title="Sumar Puntos"
               >
                 <Plus className="w-5 h-5" />
               </button>
               
               <button 
                 onClick={() => { SoundEffects.playSelect(); setScoreB(prev => Math.max(0, prev - 100)); SoundEffects.playError(); }}
-                className="flex items-center justify-center w-10 h-10 border border-amber-500/50 hover:bg-amber-950/60 text-amber-400 cursor-pointer transition-all active:scale-95"
+                className="flex items-center justify-center w-11 h-11 rounded border border-amber-500/50 hover:bg-amber-950/70 text-amber-400 cursor-pointer transition-all active:scale-90 hover:box-glow-amber"
                 title="Restar 100"
               >
                 <Minus className="w-5 h-5" />
@@ -689,15 +689,15 @@ export default function App() {
 
               {/* Score popover adjustment */}
               {showQuickB && (
-                <div className="absolute top-[50px] left-1/2 -translate-x-1/2 bg-[#200d1e] border border-amber-500 p-3 z-30 grid grid-cols-2 gap-2 box-glow-amber-strong w-48">
-                  <div className="col-span-2 flex justify-between text-xs text-slate-400 mb-1">
+                <div className="absolute top-[55px] left-1/2 -translate-x-1/2 bg-[#200d1e] border-2 border-amber-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-amber-strong w-52 rounded-lg">
+                  <div className="col-span-2 flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
                     <span>Ajuste rápido</span>
-                    <button onClick={() => setShowQuickB(false)} className="text-red-400 font-bold">X</button>
+                    <button onClick={() => setShowQuickB(false)} className="text-red-400 font-bold hover:text-red-300">X</button>
                   </div>
-                  <button onClick={() => handleScoreChange('B', 'add', 100)} className="bg-amber-950/80 hover:bg-amber-900 text-amber-300 py-1 text-xs font-mono font-bold border border-amber-800">+100</button>
-                  <button onClick={() => handleScoreChange('B', 'add', 200)} className="bg-amber-950/80 hover:bg-amber-900 text-amber-300 py-1 text-xs font-mono font-bold border border-amber-800">+200</button>
-                  <button onClick={() => handleScoreChange('B', 'add', 300)} className="bg-amber-950/80 hover:bg-amber-900 text-amber-300 py-1 text-xs font-mono font-bold border border-amber-800">+300</button>
-                  <button onClick={() => handleScoreChange('B', 'add', 400)} className="bg-amber-950/80 hover:bg-amber-900 text-amber-300 py-1 text-xs font-mono font-bold border border-amber-800">+400</button>
+                  <button onClick={() => handleScoreChange('B', 'add', 100)} className="bg-amber-950/90 hover:bg-amber-900 text-amber-300 py-1.5 text-xs font-mono font-bold border border-amber-800 rounded transition-colors">+100</button>
+                  <button onClick={() => handleScoreChange('B', 'add', 200)} className="bg-amber-950/90 hover:bg-amber-900 text-amber-300 py-1.5 text-xs font-mono font-bold border border-amber-800 rounded transition-colors">+200</button>
+                  <button onClick={() => handleScoreChange('B', 'add', 300)} className="bg-amber-950/90 hover:bg-amber-900 text-amber-300 py-1.5 text-xs font-mono font-bold border border-amber-800 rounded transition-colors">+300</button>
+                  <button onClick={() => handleScoreChange('B', 'add', 400)} className="bg-amber-950/90 hover:bg-amber-900 text-amber-300 py-1.5 text-xs font-mono font-bold border border-amber-800 rounded transition-colors">+400</button>
                 </div>
               )}
             </div>
@@ -706,7 +706,7 @@ export default function App() {
         </section>
 
         {/* --- JEOPARDY BOARD GRID --- */}
-        <section className="bg-[#050a1d]/60 border border-cyan-950 p-4 md:p-6 shadow-2xl relative w-full">
+        <section className="bg-[#050a1d]/75 border border-cyan-950/70 p-4 md:p-6 shadow-2xl relative w-full rounded-lg">
           {/* Neon side border elements simulating stadium light beams */}
           <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-cyan-400 to-transparent"></div>
           <div className="absolute top-0 bottom-0 right-0 w-1 bg-gradient-to-b from-amber-400 to-transparent"></div>
@@ -716,11 +716,17 @@ export default function App() {
             {categories.map((cat, idx) => (
               <div 
                 key={cat}
-                className="bg-[#0c133a] border-b-4 border-amber-500 py-3 md:py-4 px-2 text-center flex flex-col justify-center items-center min-h-[72px] shadow-lg relative overflow-hidden"
+                className="bg-arg-flag border-b-4 border-amber-500 py-3 md:py-4 px-2 text-center flex flex-col justify-center items-center min-h-[72px] shadow-lg relative overflow-hidden rounded-t"
               >
                 {/* Visual anchor */}
-                <div className="absolute top-1 left-2 text-[8px] font-mono text-slate-500">COL_0{idx+1}</div>
-                <h3 className="font-anton text-base md:text-lg lg:text-xl tracking-tight text-white uppercase leading-tight select-none">
+                <div className="absolute top-1 left-2 text-[8px] font-mono text-slate-900/80 font-bold">COL_0{idx+1}</div>
+                
+                {/* Sun de Mayo watermark */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-25 pointer-events-none text-3xl select-none">
+                  ☀️
+                </div>
+                
+                <h3 className="font-anton text-base md:text-lg lg:text-xl tracking-tight text-white uppercase leading-tight select-none z-10 glow-arg-text font-black">
                   {cat}
                 </h3>
               </div>
@@ -737,19 +743,19 @@ export default function App() {
                     key={key}
                     onClick={() => handleTileClick(cat, val)}
                     className={`
-                      aspect-[4/3] flex flex-col items-center justify-center relative cursor-pointer select-none transition-all duration-200 border-b-2
+                      aspect-[4/3] flex flex-col items-center justify-center relative cursor-pointer select-none transition-all duration-200 border-b-2 rounded-md
                       ${isSpent 
-                        ? 'opacity-20 pointer-events-none bg-slate-800/40 text-slate-600 line-through border-transparent' 
-                        : 'bg-[#141b46] hover:bg-[#1a2562] text-amber-400 border-amber-500/60 hover:border-cyan-400 hover:scale-[1.04] active:scale-95 hover:box-glow-cyan'
+                        ? 'opacity-25 pointer-events-none bg-slate-800/20 text-slate-600 line-through border-transparent shadow-none' 
+                        : 'bg-[#0f193f]/90 hover:bg-[#15235c]/95 text-amber-400 border-amber-500/50 hover:border-cyan-400 hover:scale-[1.05] active:scale-95 hover:box-glow-cyan shadow-[0_4px_10px_rgba(0,0,0,0.3)]'
                       }
                     `}
                   >
                     {/* Tiny watermark */}
                     {!isSpent && (
-                      <span className="absolute top-1 right-2 text-[9px] font-mono text-slate-500/60 font-bold select-none">{val} PTS</span>
+                      <span className="absolute top-1.5 right-2 text-[9px] font-mono text-cyan-400/80 font-bold select-none tracking-widest">{val} PTS</span>
                     )}
 
-                    <span className={`font-anton text-3xl md:text-4xl lg:text-5xl ${isSpent ? 'text-slate-600' : 'text-amber-400 group-hover:text-cyan-300'}`}>
+                    <span className={`font-digital text-3xl md:text-4xl lg:text-5xl font-extrabold ${isSpent ? 'text-slate-600' : 'text-amber-400 glow-amber group-hover:text-cyan-300'}`}>
                       {val}
                     </span>
                   </div>
@@ -782,7 +788,7 @@ export default function App() {
             {/* Background pattern */}
             <div className="absolute inset-0 bg-radial-gradient(circle, rgba(14,24,64,0.3) 0%, rgba(0,0,0,0.9) 100%) pointer-events-none"></div>
 
-            <div className="w-full max-w-5xl bg-[#070e2b] border-4 border-cyan-500/80 relative p-6 md:p-10 text-center box-glow-cyan-strong flex flex-col justify-between min-h-[85vh] md:min-h-[75vh] z-10">
+            <div className="w-full max-w-5xl bg-gradient-to-b from-[#081232] to-[#030616] border-lightning-cyan relative p-6 md:p-10 text-center flex flex-col justify-between min-h-[85vh] md:min-h-[75vh] z-10 rounded-lg">
               
               {/* Question Header Info */}
               <div className="flex items-center justify-between border-b border-cyan-900 pb-4">
@@ -916,13 +922,13 @@ export default function App() {
               `}</style>
             </div>
 
-            <div className="w-full max-w-4xl bg-[#090b20] border-4 border-amber-500 p-8 md:p-12 text-center relative box-glow-amber-strong z-10">
+            <div className="w-full max-w-4xl bg-gradient-to-b from-[#1a1135] to-[#050616] border-lightning-amber p-8 md:p-12 text-center relative z-10 rounded-lg">
               
               {/* Golden Trophy Icon */}
               <div className="flex justify-center mb-6">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-amber-400/20 blur-xl rounded-full"></div>
-                  <Trophy className="w-24 h-24 text-amber-400 relative z-10 animate-bounce" />
+                  <div className="absolute inset-0 bg-amber-400/25 blur-xl rounded-full animate-pulse"></div>
+                  <Trophy className="w-28 h-28 text-amber-400 relative z-10 animate-bounce" />
                 </div>
               </div>
 
@@ -934,22 +940,22 @@ export default function App() {
               {/* Detailed Group Scores comparison */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto my-8">
                 {/* Grupo A result */}
-                <div className="bg-[#050e26] border-2 border-cyan-500/40 p-6 flex flex-col items-center">
+                <div className="bg-[#050e26] border border-cyan-500/40 p-6 flex flex-col items-center rounded-lg">
                   <span className="font-mono text-cyan-400 text-xs uppercase tracking-widest">GRUPO A</span>
-                  <span className="font-anton text-5xl text-white mt-2">{scoreA} PTS</span>
+                  <span className="font-digital text-5xl text-white mt-2 font-bold">{scoreA} PTS</span>
                   {scoreA >= scoreB && (
-                    <span className="mt-2 text-xs bg-cyan-950 text-cyan-300 font-mono py-1 px-3">
+                    <span className="mt-3 text-xs bg-cyan-950 text-cyan-300 font-mono py-1 px-3 border border-cyan-800 rounded">
                       {scoreA === scoreB ? 'EMPATE' : 'CAMPEÓN'}
                     </span>
                   )}
                 </div>
 
                 {/* Grupo B result */}
-                <div className="bg-[#12051c] border-2 border-amber-500/40 p-6 flex flex-col items-center">
+                <div className="bg-[#12051c] border border-amber-500/40 p-6 flex flex-col items-center rounded-lg">
                   <span className="font-mono text-amber-400 text-xs uppercase tracking-widest">GRUPO B</span>
-                  <span className="font-anton text-5xl text-white mt-2">{scoreB} PTS</span>
+                  <span className="font-digital text-5xl text-white mt-2 font-bold">{scoreB} PTS</span>
                   {scoreB >= scoreA && (
-                    <span className="mt-2 text-xs bg-amber-950 text-amber-300 font-mono py-1 px-3">
+                    <span className="mt-3 text-xs bg-amber-950 text-amber-300 font-mono py-1 px-3 border border-amber-800 rounded">
                       {scoreB === scoreA ? 'EMPATE' : 'CAMPEÓN'}
                     </span>
                   )}
@@ -957,8 +963,15 @@ export default function App() {
               </div>
 
               {/* Host image miniature in trophy screen */}
-              <div className="flex items-center justify-center gap-3 my-6 text-slate-300 max-w-sm mx-auto border-t border-slate-800 pt-6">
-                <img src="POSTER_11_ECHI.jpg" alt="Echi" className="w-12 h-12 rounded-full object-cover border border-cyan-400" />
+              <div className="flex items-center justify-center gap-4 my-6 text-slate-300 max-w-sm mx-auto border-t border-slate-800 pt-6">
+                <img 
+                  src="/ECHI_JUGADOR.png" 
+                  alt="Echi" 
+                  className="w-14 h-14 object-contain rounded-full border border-cyan-400 bg-slate-900/60 p-1 player-glow"
+                  onError={(e) => {
+                    e.currentTarget.src = "/POSTER_11_ECHI.jpg";
+                  }}
+                />
                 <div className="text-left text-xs">
                   <p className="font-bold text-slate-100">"Los 11 de Echi" Trivia</p>
                   <p className="text-slate-400 font-mono">¡Felicitaciones a los mundialistas!</p>

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-anton: "Anton", sans-serif;
+  --font-anybody: "Anybody", sans-serif;
+  --font-caveat: "Caveat", cursive;
+  --font-marker: "Permanent Marker", cursive;
+}
+
+/* Custom effects based on Championship Stadium design theme */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.7), 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.glow-amber {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.7), 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+.box-glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+.box-glow-cyan-strong {
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
+}
+
+.box-glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.box-glow-amber-strong {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.6);
+}
+
+.stadium-bg {
+  background: radial-gradient(circle at 50% 30%, #0c1c44 0%, #04081c 80%, #02040d 100%);
+}
+
+.grid-board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+

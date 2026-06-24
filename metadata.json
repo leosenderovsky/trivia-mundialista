@@ -1,0 +1,6 @@
+{
+  "name": "Trivia Mundialista",
+  "description": "Trivia de fútbol estilo Jeopardy de nivel avanzado - Los 11 de Echi",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

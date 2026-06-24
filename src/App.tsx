@@ -506,7 +506,7 @@ export default function App() {
               <span className="text-amber-400 text-lg md:text-xl drop-shadow-[0_0_6px_rgba(245,158,11,0.8)]">★</span>
               <span className="text-amber-400 text-xl md:text-2xl drop-shadow-[0_0_10px_rgba(245,158,11,0.9)] -translate-y-0.5">★</span>
               <span className="text-amber-400 text-lg md:text-xl drop-shadow-[0_0_6px_rgba(245,158,11,0.8)]">★</span>
-              <span className="text-xs md:text-sm font-mono text-cyan-300 uppercase tracking-widest font-bold ml-2">EDICIÓN JEOPARDY EN VIVO</span>
+              {/* <span className="text-xs md:text-sm font-mono text-cyan-300 uppercase tracking-widest font-bold ml-2">¡JUGUEMOS!</span>*/}
             </div>
             
             <h1 className="weathered-title text-center md:text-left text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.8] drop-shadow-[0_8px_16px_rgba(0,0,0,0.95)] select-none">
@@ -515,7 +515,7 @@ export default function App() {
             </h1>
             
             <p className="text-xs md:text-sm font-mono text-slate-400 mt-4 uppercase tracking-widest max-w-md mx-auto md:mx-0">
-              Desafío de fútbol de nivel avanzado para fanáticos mundiales. ¡Demostrá tu conocimiento en la grilla de la Copa!
+              Desafío sólo para fanáticos del fútbol<br/>¡Demostrá tu conocimiento!
             </p>
           </div>
 

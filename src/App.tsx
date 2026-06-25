@@ -502,7 +502,7 @@ export default function App() {
       <header className="border-b border-cyan-950/40 bg-[#04081c]/90 backdrop-blur-md px-6 py-4 flex items-center justify-between z-40 sticky top-0">
         <div className="flex items-center gap-3">
           <div className="w-3.5 h-3.5 bg-cyan-400 rounded-full animate-pulse box-glow-cyan-strong"></div>
-          <span className="font-anton text-2xl tracking-tight text-white glow-cyan uppercase">
+          <span className="font-anton text-2xl tracking-normal text-white glow-cyan uppercase">
             TRIVIA MUNDIALISTA
           </span>
         </div>
@@ -582,7 +582,7 @@ export default function App() {
 
           <button
             onClick={handleFinalizeGame}
-            className="bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-anton text-sm tracking-wider uppercase px-4 py-2 transition-all cursor-pointer font-bold border-b-4 border-cyan-700 active:border-b-0 hover:translate-y-[2px]"
+            className="bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-anton text-sm tracking-wider uppercase px-4 py-2 transition-all cursor-pointer font-bold border-b-4 border-cyan-700 active:border-b-0 hover:translate-y-0.5"
           >
             Finalizar Juego
           </button>
@@ -592,7 +592,7 @@ export default function App() {
       {/* --- MAIN HERO CONTENT --- */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6 md:py-8 flex flex-col gap-6 md:gap-8 justify-center">
         {/* --- CABECERA INTEGRADA DEL SITIO (HERO BANNER) --- */}
-        <section className="relative w-full bg-gradient-to-br from-[#060e2b] via-[#04081c]/95 to-[#02040d] border border-cyan-500/40 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden box-glow-cyan">
+        <section className="relative w-full bg-linear-to-br from-[#060e2b] via-[#04081c]/95 to-[#02040d] border border-cyan-500/40 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden box-glow-cyan">
           {/* Cyber lights in background */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none"></div>
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-amber-500/5 blur-3xl rounded-full pointer-events-none"></div>
@@ -612,10 +612,10 @@ export default function App() {
               {/* <span className="text-xs md:text-sm font-mono text-cyan-300 uppercase tracking-widest font-bold ml-2">¡JUGUEMOS!</span>*/}
             </div>
 
-            <h1 className="weathered-title text-center md:text-left text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.8] drop-shadow-[0_8px_16px_rgba(0,0,0,0.95)] select-none">
+            <h1 className="weathered-title text-center md:text-left text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-normal uppercase leading-[0.8] drop-shadow-[0_8px_16px_rgba(0,0,0,0.95)] select-none">
               TRIVIA
               <br />
-              <span className="text-cyan-400 glow-cyan select-none tracking-tight block mt-2 text-6xl sm:text-7xl md:text-8xl lg:text-[7.8rem]">
+              <span className="text-cyan-400 glow-cyan select-none tracking-normal block mt-2 text-6xl sm:text-7xl md:text-8xl lg:text-[7.8rem]">
                 MUNDIALISTA
               </span>
             </h1>
@@ -628,7 +628,7 @@ export default function App() {
           </div>
 
           {/* LADO DERECHO: IMAGEN DE ECHI JUGADOR CON RESPLANDOR Y SUBTÍTULO */}
-          <div className="relative flex flex-col items-center justify-end z-10 w-full md:w-auto min-w-[280px] md:min-w-[320px] select-none h-64 sm:h-72 md:h-80">
+          <div className="relative flex flex-col items-center justify-end z-10 w-full md:w-auto min-w-70 md:min-w-[320px] select-none h-64 sm:h-72 md:h-80">
             {/* Background glowing circle */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-48 h-48 bg-cyan-400/25 blur-3xl rounded-full pointer-events-none"></div>
 
@@ -647,7 +647,7 @@ export default function App() {
             </div>
 
             {/* Subtitle overlapping/covering the bottom crop */}
-            <div className="absolute bottom-[-5px] text-center w-full z-20 pointer-events-none">
+            <div className="absolute -bottom-1.25 text-center w-full z-20 pointer-events-none">
               <span className="font-marker text-cyan-300 italic text-3xl sm:text-4xl md:text-5xl tracking-wide font-bold glow-cyan inline-block rotate-[-4deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
                 Los 11 de Echi
               </span>
@@ -732,7 +732,7 @@ export default function App() {
 
               {/* Score popover adjustment */}
               {showQuickA && (
-                <div className="absolute top-[55px] left-1/2 -translate-x-1/2 bg-[#091535] border-2 border-cyan-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-cyan-strong w-52 rounded-lg">
+                <div className="absolute top-13.75 left-1/2 -translate-x-1/2 bg-[#091535] border-2 border-cyan-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-cyan-strong w-52 rounded-lg">
                   <div className="col-span-2 flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
                     <span>Ajuste rápido</span>
                     <button
@@ -846,7 +846,7 @@ export default function App() {
 
               {/* Score popover adjustment */}
               {showQuickB && (
-                <div className="absolute top-[55px] left-1/2 -translate-x-1/2 bg-[#200d1e] border-2 border-amber-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-amber-strong w-52 rounded-lg">
+                <div className="absolute top-13.75 left-1/2 -translate-x-1/2 bg-[#200d1e] border-2 border-amber-400 p-3.5 z-30 grid grid-cols-2 gap-2 box-glow-amber-strong w-52 rounded-lg">
                   <div className="col-span-2 flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
                     <span>Ajuste rápido</span>
                     <button
@@ -889,15 +889,15 @@ export default function App() {
         {/* --- JEOPARDY BOARD GRID --- */}
         <section className="bg-[#050a1d]/75 border border-cyan-950/70 p-4 md:p-6 shadow-2xl relative w-full rounded-lg">
           {/* Neon side border elements simulating stadium light beams */}
-          <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-cyan-400 to-transparent"></div>
-          <div className="absolute top-0 bottom-0 right-0 w-1 bg-gradient-to-b from-amber-400 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-1 bg-linear-to-b from-cyan-400 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-1 bg-linear-to-b from-amber-400 to-transparent"></div>
 
           <div className="grid grid-board gap-4 md:gap-5 w-full">
             {/* Category Headers */}
             {categories.map((cat, idx) => (
               <div
                 key={cat}
-                className="bg-arg-flag border-b-4 border-amber-500 py-3 md:py-4 px-2 text-center flex flex-col justify-center items-center min-h-[72px] shadow-lg relative overflow-hidden rounded-t"
+                className="bg-arg-flag border-b-4 border-amber-500 py-3 md:py-4 px-2 text-center flex flex-col justify-center items-center min-h-18 shadow-lg relative overflow-hidden rounded-t"
               >
                 {/* Visual anchor */}
                 {/*<div className="absolute top-1 left-2 text-[8px] font-mono text-slate-900/80 font-bold">COL_0{idx+1}</div>*/}
@@ -924,7 +924,7 @@ export default function App() {
                     key={key}
                     onClick={() => handleTileClick(cat, val)}
                     className={`
-                      aspect-[4/3] flex flex-col items-center justify-center relative cursor-pointer select-none transition-all duration-200 border-b-2 rounded-md
+                      aspect-4/3 flex flex-col items-center justify-center relative cursor-pointer select-none transition-all duration-200 border-b-2 rounded-md
                       ${
                         isSpent
                           ? "opacity-25 pointer-events-none bg-slate-800/20 text-slate-600 line-through border-transparent shadow-none"
@@ -971,17 +971,16 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-3 md:p-6 overflow-y-auto"
           >
             {/* Background pattern */}
             <div className="absolute inset-0 bg-radial-gradient(circle, rgba(14,24,64,0.3) 0%, rgba(0,0,0,0.9) 100%) pointer-events-none"></div>
 
-            <div className="w-full max-w-5xl bg-gradient-to-b from-[#081232] to-[#030616] border-lightning-cyan relative p-6 md:p-10 text-center flex flex-col justify-between min-h-[85vh] md:min-h-[75vh] z-10 rounded-lg">
+            <div className="w-full max-w-5xl bg-linear-to-b from-[#081232] to-[#030616] border-lightning-cyan relative p-4 md:p-8 2xl:p-10 text-center flex flex-col z-10 rounded-lg my-auto">
               {/* Question Header Info */}
               <div className="flex items-center justify-between border-b border-cyan-900 pb-4">
                 <div className="text-left">
-                  
-            {/* <p className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
+                  {/* <p className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
                     Categoría de Trivia
                   </p>*/}
                   <h4 className="font-anton text-2xl md:text-3xl text-slate-100 uppercase tracking-tight">
@@ -994,11 +993,11 @@ export default function App() {
               </div>
 
               {/* Actual Question Text Area */}
-              <div className="my-8 md:my-12 px-2 flex-1 flex flex-col justify-center">
+              <div className="my-4 md:my-8 px-2 flex flex-col justify-center">
                 <p className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">
                   Pregunta en Juego
                 </p>
-                <h2 className="font-anton text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-relaxed tracking-wide select-text drop-shadow-[0_2px_10px_rgba(34,211,238,0.2)]">
+                <h2 className="font-anton text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl text-white leading-snug tracking-wide select-text drop-shadow-[0_2px_10px_rgba(34,211,238,0.2)]">
                   {selectedQuestion.p}
                 </h2>
 
@@ -1013,7 +1012,7 @@ export default function App() {
                       <p className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-1.5 select-none">
                         Respuesta Oficial
                       </p>
-                      <h3 className="font-anton text-3xl sm:text-4xl md:text-5xl text-emerald-400 glow-cyan uppercase tracking-wide select-text max-w-2xl leading-tight">
+                      <h3 className="font-anton text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-emerald-400 glow-cyan uppercase tracking-wide select-text max-w-2xl leading-tight">
                         {selectedQuestion.r}
                       </h3>
                     </motion.div>
@@ -1022,22 +1021,22 @@ export default function App() {
               </div>
 
               {/* Bottom Control & Facilitator Panel */}
-              <div className="mt-auto border-t border-cyan-900/40 pt-6 flex flex-col gap-5">
+              <div className="border-t border-cyan-900/40 pt-4 flex flex-col gap-3 mt-4">
                 {/* Reveal Answer Action Button */}
                 {!showAnswer ? (
                   <button
                     onClick={handleRevealAnswer}
-                    className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-anton text-2xl py-4 px-8 uppercase tracking-wider transition-all cursor-pointer border-b-4 border-amber-700 active:border-b-0 hover:translate-y-[2px]"
+                    className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-anton text-xl md:text-2xl py-3 md:py-4 px-8 uppercase tracking-wider transition-all cursor-pointer border-b-4 border-amber-700 active:border-b-0 hover:translate-y-0.5"
                   >
                     Revelar Respuesta
                   </button>
                 ) : (
                   /* Facilitator's Instant Score Awarding Panel */
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
                     <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
                       Asignar Puntos de la Pregunta al Marcador
                     </p>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
                       <button
                         onClick={() => handleCloseQuestion(true, "A", true)}
                         className="bg-cyan-600 hover:bg-cyan-500 text-white font-anton text-sm py-2 px-3 uppercase tracking-wider transition-all cursor-pointer border-b-2 border-cyan-800"
@@ -1067,7 +1066,7 @@ export default function App() {
                 )}
 
                 {/* Return To Board (Neutral action) */}
-                <div className="flex justify-between items-center gap-4 text-xs font-mono text-slate-400">
+                <div className="flex justify-between items-center gap-4 text-xs font-mono text-slate-400 mt-1">
                   {/* <span>
                     Código de celda:{" "}
                     {selectedQuestion.category.slice(0, 3).toUpperCase()}-
@@ -1123,7 +1122,7 @@ export default function App() {
               `}</style>
             </div>
 
-            <div className="w-full max-w-4xl bg-gradient-to-b from-[#1a1135] to-[#050616] border-lightning-amber p-8 md:p-12 text-center relative z-10 rounded-lg">
+            <div className="w-full max-w-4xl bg-linear-to-b from-[#1a1135] to-[#050616] border-lightning-amber p-8 md:p-12 text-center relative z-10 rounded-lg">
               {/* Golden Trophy Icon */}
               <div className="flex justify-center mb-6">
                 <div className="relative">
@@ -1196,7 +1195,7 @@ export default function App() {
               <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 pt-4 border-t border-slate-800">
                 <button
                   onClick={handleResetGame}
-                  className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-anton text-xl py-3 px-8 uppercase tracking-wider transition-all cursor-pointer border-b-4 border-amber-700 active:border-b-0 hover:translate-y-[2px]"
+                  className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-anton text-xl py-3 px-8 uppercase tracking-wider transition-all cursor-pointer border-b-4 border-amber-700 active:border-b-0 hover:translate-y-0.5"
                 >
                   Reiniciar Todo el Partido
                 </button>

@@ -16,82 +16,32 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import questionsData from "./data/questions.json";
 
 // --- DATA STRUCTURE ---
-const triviaData: Record<string, Record<number, { p: string; r: string }>> = {
-  "Selección Argentina": {
-    100: {
-      p: "¿En qué año y Mundial debutó Lionel Messi en una Copa del Mundo ingresando frente a Serbia y Montenegro?",
-      r: "Alemania 2006",
-    },
-    200: {
-      p: "¿Quién fue el director técnico que sacó campeona a la Selección Argentina en el Mundial de México 1986?",
-      r: "Carlos Salvador Bilardo",
-    },
-    300: {
-      p: "¿Qué jugador argentino anotó el gol decisivo del 3-2 en la final de México 1986 tras una asistencia de Maradona?",
-      r: "Jorge Burruchaga",
-    },
-    400: {
-      p: "¿Quién fue el arquero argentino que se convirtió en héroe en Italia 1990 al atajar penales clave en cuartos y semis?",
-      r: "Sergio Goycochea",
-    },
-  },
-  "Estadios y Países": {
-    100: {
-      p: "¿En qué legendario estadio de Río de Janeiro se jugaron las finales de los Mundiales de 1950 y 2014?",
-      r: "Estadio Maracaná",
-    },
-    200: {
-      p: "¿En qué país europeo se jugó el Mundial de 1998, cuya final ganó el equipo local liderado por Zinedine Zidane?",
-      r: "Francia",
-    },
-    300: {
-      p: "¿Qué dos países asiáticos organizaron de forma conjunta por primera vez en la historia un Mundial en el año 2002?",
-      r: "Corea del Sur y Japón",
-    },
-    400: {
-      p: "¿En qué país se jugó el Mundial de 1970, recordado por coronar al Brasil de Pelé en el Estadio Azteca?",
-      r: "México",
-    },
-  },
-  "Ídolos y leyendas": {
-    100: {
-      p: "¿Quién es el máximo goleador de la historia de los Mundiales con un total de 16 goles anotados para Alemania?",
-      r: "Miroslav Klose",
-    },
-    200: {
-      p: "¿Qué delantero brasilero, apodado 'El Fenómeno', metió los dos goles en la final de Corea-Japón 2002 contra Alemania?",
-      r: "Ronaldo Nazário",
-    },
-    300: {
-      p: "¿Qué delantero francés ostenta el récord imbatible de haber metido más goles (13) en un solo Mundial (Suecia 1958)?",
-      r: "Just Fontaine",
-    },
-    400: {
-      p: "¿Qué crack de Países Bajos, considerado el padre del 'Fútbol Total', brilló en el Mundial de 1974 usando el número 14?",
-      r: "Johan Cruyff",
-    },
-  },
-  Campeones: {
-    100: {
-      p: "¿Qué país europeo ganó su primer y único mundial en Sudáfrica 2010 ganándole la final a Países Bajos?",
-      r: "España",
-    },
-    200: {
-      p: "¿Qué selección sudamericana logró el histórico 'Maracanazo' al ganarle la final del Mundial de 1950 a Brasil en su casa?",
-      r: "Uruguay",
-    },
-    300: {
-      p: "¿Qué selección europea se consagró tetracampeona del mundo tras ganar el Mundial de Alemania 2006 por penales?",
-      r: "Italia",
-    },
-    400: {
-      p: "¿Qué selección llegó a tres finales del mundo (1974, 1978 y 2010) pero las perdió todas, siendo apodada 'El campeón sin corona'?",
-      r: "Países Bajos (Holanda)",
-    },
-  },
-};
+
+// --- TIPOS ---
+interface TriviaQuestion {
+  id: string;
+  category: string;
+  value: number;
+  question: string;
+  answer: string;
+}
+
+// Construcción del banco de preguntas agrupado por categoría y valor
+// Estructura: { "Selección Argentina": { 100: [...], 200: [...] }, ... }
+const triviaData: Record<string, Record<number, TriviaQuestion[]>> = {};
+
+(questionsData as TriviaQuestion[]).forEach((q) => {
+  if (!triviaData[q.category]) {
+    triviaData[q.category] = {};
+  }
+  if (!triviaData[q.category][q.value]) {
+    triviaData[q.category][q.value] = [];
+  }
+  triviaData[q.category][q.value].push(q);
+});
 
 const categories = Object.keys(triviaData);
 const pointValues = [100, 200, 300, 400];
@@ -276,6 +226,7 @@ export default function App() {
     value: number;
     p: string;
     r: string;
+    questionId: string;
   } | null>(null);
 
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
@@ -365,13 +316,17 @@ export default function App() {
     if (spentQuestions[key]) return;
 
     SoundEffects.playSelect();
-    const q = triviaData[category]?.[value];
-    if (q) {
+    const pool = triviaData[category]?.[value];
+    if (pool && pool.length > 0) {
+      // Selección aleatoria entre las preguntas disponibles del pool
+      const randomIndex = Math.floor(Math.random() * pool.length);
+      const q = pool[randomIndex];
       setSelectedQuestion({
         category,
         value,
-        p: q.p,
-        r: q.r,
+        p: q.question,
+        r: q.answer,
+        questionId: q.id,
       });
       setShowAnswer(false);
     }
